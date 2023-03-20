@@ -42,7 +42,9 @@ class CounterView extends StatelessWidget {
                   ),
                   const SizedBox(width: 16.0),
                   FloatingActionButton(
-                    onPressed: () => context.read<CounterBloc>().add(DecrementCounter()),
+                    onPressed: () => {
+                      if (state.counterValue > 0) {context.read<CounterBloc>().add(DecrementCounter())}
+                    },
                     child: const Icon(Icons.remove),
                   ),
                 ],
